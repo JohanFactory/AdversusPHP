@@ -20,7 +20,7 @@ $leads = \AdversusPHP\Lead::all();
 // list models with filter
 $campaignFilter = new \AdversusPHP\Filter('campaignId', \AdversusPHP\Filter::EQUAL_TO, 1512);
 $activeFilter = new \AdversusPHP\Filter('active', \AdversusPHP\Filter::EQUAL_TO, true);
-$activeLeadsFromCampaign1512 = \AdversusPHP\Campaign::all([$campaignFilter, $activeFilter]);
+$activeLeadsFromCampaign1512 = \AdversusPHP\Lead::all([$campaignFilter, $activeFilter]);
 
 // get single model
 $lead = \AdversusPHP\Lead::find(206592972);
