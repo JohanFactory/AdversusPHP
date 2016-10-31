@@ -16,11 +16,11 @@ class Campaign extends Model
     protected static $path = 'campaigns';
 
     /**
-     * @return static[]
+     * @return Lead[]
      */
     public function getLeads()
     {
-        $campaignFilter = new Filter(1, Filter::EQUAL_TO, "135");
+        $campaignFilter = new Filter("campaignId", Filter::EQUAL_TO, $this->id);
         $activeFilter   = new Filter("active", Filter::EQUAL_TO, true);
         return Lead::all([$campaignFilter, $activeFilter]);
     }
