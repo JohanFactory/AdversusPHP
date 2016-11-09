@@ -47,4 +47,23 @@ class Filter
         $this->value = $value;
     }
 
+    /**
+     * @param $filters
+     *
+     * @return string
+     */
+    public static function toParam($filters)
+    {
+        if (!is_array($filters)) {
+            $filters = [$filters];
+        }
+        $param = [];
+        foreach ($filters as $filter) {
+            $param[$filter->name] = [
+                $filter->filterType => $filter->value
+            ];
+        }
+        return json_encode($param);
+    }
+
 }

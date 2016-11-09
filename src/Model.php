@@ -68,7 +68,7 @@ abstract class Model
     {
         $url = '/' . static::$path;
         if ($filters !== null) {
-            $url .= '?filters=' . static::getFilterParam($filters);
+            $url .= '?filters=' . Filter::toParam($filters);
         }
         $response = self::$client->get($url);
         $data     = json_decode($response->getBody()->getContents(), true);
@@ -79,24 +79,6 @@ abstract class Model
         return $models;
     }
 
-    /**
-     * @param $filters
-     *
-     * @return string
-     */
-    protected static function getFilterParam($filters)
-    {
-        if (!is_array($filters)) {
-            $filters = [$filters];
-        }
-        $param = [];
-        foreach ($filters as $filter) {
-            $param[$filter->name] = [
-                $filter->filterType => $filter->value
-            ];
-        }
-        return json_encode($param);
-    }
 
     public function dump()
     {
