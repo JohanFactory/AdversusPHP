@@ -269,4 +269,13 @@ class Lead extends Model
         ]);
         return $response->getStatusCode() == 200;
     }
+
+    /**
+     * @return bool
+     */
+    public function delete()
+    {
+        $response = self::$client->delete('/' . static::$path . '/' . $this->id);
+        return $response->getStatusCode() == 200;
+    }
 }
