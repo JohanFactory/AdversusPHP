@@ -25,17 +25,25 @@ abstract class Model
     /**
      * @var array
      */
-    public $data;
+    protected $data;
 
     /**
      * Model constructor.
      *
      * @param array $data
      */
-    protected function __construct(array $data)
+    public function __construct(array $data = null)
     {
-        $this->id   = $data['id'];
-        $this->data = $data;
+        if (!is_null($data)){
+            $this->id   = $data['id'];
+            $this->data = $data;
+        }
+        else{
+            $this->data = [
+                'active' => true,
+                'status' => 'new'
+            ];
+        }
     }
 
     /**
