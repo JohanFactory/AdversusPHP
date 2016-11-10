@@ -25,8 +25,16 @@ $activeLeadsFromCampaign1512 = \AdversusPHP\Lead::all([$campaignFilter, $activeF
 // get single model
 $lead = \AdversusPHP\Lead::find(206592972);
 // edit some values
-$lead->data['active'] = true;
-$lead->data['masterData'][1]['value'] = 'Edited value';
+$lead->setActive(true);
+// edit a custom master data value (by id)
+$lead->setMasterDataValue(4, "new@email.address");
 // save changes
-$lead->update();
+$lead->save();
+
+// create a new Lead
+$lead = new \AdversusPHP\Lead();
+$lead->setCampaign(1234);
+$lead->setMasterDataValue(1, "+4512345678");
+$lead->setMasterDataValue(2, "John Doe");
+$lead->save(); // $lead->id is now set
 ```
