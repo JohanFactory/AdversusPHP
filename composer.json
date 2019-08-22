@@ -1,14 +1,13 @@
 {
   "name": "findforsikring/adversus-php",
+  "version": "0.2",
   "description": "PHP wrapper for Adversus API",
   "minimum-stability": "stable",
   "license": "MIT",
-  "authors": [
-    {
-      "name": "Morten Scheel",
-      "email": "ms@findforsikring.dk"
-    }
-  ],
+  "authors": [{
+    "name": "Morten Scheel",
+    "email": "ms@findforsikring.dk"
+  }],
   "require": {
     "guzzlehttp/guzzle": "^6.2"
   },
