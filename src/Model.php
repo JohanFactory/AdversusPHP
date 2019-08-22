@@ -80,8 +80,12 @@ abstract class Model
         }
         $response = self::$client->get($url);
         $data     = json_decode($response->getBody()->getContents(), true);
+        $is_assoc = !empty($data) && array_keys($data) !== range(0, count($data) - 1);
+        if ($is_assoc) {
+            $data = $data[static::$path];
+        }
         $models   = [];
-        foreach ($data[static::$path] as $modelData) {
+        foreach ($data as $modelData) {
             $models[] = new static($modelData);
         }
         return $models;

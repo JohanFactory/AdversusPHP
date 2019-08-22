@@ -30,7 +30,7 @@ class Campaign extends Model
      */
     public function getName()
     {
-        return $this->getSettings()['navn'];
+        return $this->getSettings()['name'];
     }
 
     /**
@@ -38,7 +38,17 @@ class Campaign extends Model
      */
     public function getSettings()
     {
-        return $this->data['settings'][0];
+        return $this->data['settings'];
+    }
+
+    public function getMasterFields()
+    {
+        return $this->data['masterFields'];
+    }
+
+    public function getResultFields()
+    {
+        return $this->data['resultFields'];
     }
 
     /**
