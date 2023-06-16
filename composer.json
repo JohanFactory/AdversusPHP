@@ -1,5 +1,5 @@
 {
-  "name": "findforsikring/adversus-php",
+  "name": "johanfactory/adversus-php",
   "version": "0.2",
   "description": "PHP wrapper for Adversus API",
   "minimum-stability": "stable",
